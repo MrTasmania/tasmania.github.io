@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi amor</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('img/amar.png') no-repeat center center/cover;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            padding: 20px; /* Espacio interno para evitar que el texto se pegue al borde */
+            border-radius: 10px; /* Bordes redondeados */
+            background: url('img/flowers-border.png') no-repeat center center/contain; /* Imagen de borde floral */
+            background-size: cover; /* Ajusta el tamaño del borde floral */
+            border: 10px solid transparent; /* Espacio para mostrar la imagen del borde floral */
+        }
+
+        .moving-text {
+            font-size: 4vw;
+            color: #ff66b2; /* Rosa brillante para el texto en movimiento */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            animation: moveText 10s linear infinite;
+            width: 100vw;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        h1 {
+            color: #cc66ff; /* Morado suave para el título */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-size: 8vw;
+            animation: fadeInOut 3s infinite;
+        }
+
+        h2 {
+            color: #ff66b2; /* Rosa brillante para el mensaje */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-size: 4vw;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        button {
+            font-size: 3vw;
+            padding: 15px 30px;
+            margin-top: 30px;
+            border: none;
+            background-color: #ff3366; /* Rosa oscuro para los botones */
+            color: white;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            margin-left: 20px;
+        }
+
+        #qrImage {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #qrImage img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ff3366;
+            border-radius: 10px;
+        }
+
+        #qrImage p {
+            font-size: 2vw;
+            color: #ff66b2; /* Rosa brillante para el texto del QR */
+            margin-top: 20px;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="moving-text">¡Feliz Día del Amor y la Amistad!</div>
+        <h1>MI AMOR Janieth Vivas💕</h1>
+        <h2 id="message">Tengo un regalo para ti❤️‍🩹</h2>
+        <button onclick="window.location.href='rosas.html'">Flores🌻</button>
+        <button onclick="showQR()">Imprimir QR</button>
+        <div id="qrImage">
+            <img src="QR/QR1.png" alt="QR Code">
+        </div>
+    </div>
+    <script>
+        function showQR() {
+            var qrImage = document.getElementById('qrImage');
+            var message = document.getElementById('message');
+            
+            // Cambia el mensaje en <h2>
+            message.textContent = 'Tienes un cupón para ir al cine';
+            
+            // Muestra u oculta la imagen QR
+            qrImage.style.display = qrImage.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
